@@ -1658,6 +1658,14 @@
 ;; the DGO file
 (custom-level-cgo "TSZ.DGO" "test-zone/testzone.gd")
 
+(build-custom-level "city-zone")
+;; the DGO file
+(custom-level-cgo "CIZ.DGO" "city-zone/cityzone.gd")
+
+(build-custom-level "city-zone-offshore")
+;; the DGO file
+(custom-level-cgo "CZO.DGO" "city-zone-offshore/cityzoneoffshore.gd")
+
 ;; generate the art group for a custom actor.
 ;; requires a .glb model file in custom_assets/jak1/models
 (build-actor "test-actor")
@@ -2116,7 +2124,6 @@
 )
 
 (goal-src "levels/test-zone/test-zone-obs.gc" "process-drawable")
-
 
 (group-list "all-code"
   `(,@(reverse *all-gc*))

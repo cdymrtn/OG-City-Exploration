@@ -1980,7 +1980,7 @@
 
 ;;;;;;;;; CUSTOM LEVELS
 (define test-zone (new 'static 'level-load-info
-                           :index 26
+                           :index 27
                            :name 'test-zone
                            :visname 'test-zone-vis ;; name + -vis
                            :nickname 'tsz          ;; nickname
@@ -2018,4 +2018,85 @@
                            )
         )
 
+(define city-zone (new 'static 'level-load-info
+                           :index 28
+                           :name 'city-zone
+                           :visname 'city-zone-vis ;; name + -vis
+                           :nickname 'ciz          ;; nickname
+                           :packages '(beach)
+                           :sound-banks '(beach)
+                           :music-bank 'beach
+                           :ambient-sounds '()
+                           :mood '*default-mood*
+                           :mood-func 'update-mood-village1
+                           :ocean #f
+                           :sky #t
+                           :continues '((new 'static 'continue-point
+                                             :name "city-zone-start"
+                                             :level 'city-zone
+                                             :trans (new 'static 'vector :x (meters -1506.00) :y (meters 22.50) :z (meters -626.0) :w 1.0)
+                                             :quat (new 'static 'quaternion  :w 1.0)
+                                             :camera-trans (new 'static 'vector :x 0.0 :y 4096.0 :z 0.0 :w 1.0)
+                                             :camera-rot (new 'static 'array float 9 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0)
+                                             :load-commands '()
+                                             :vis-nick 'none
+                                             :lev0 'city-zone
+                                             :disp0 'display
+                                             :lev1 'none
+                                             :disp1 #f
+                                             ))
+                           :tasks '()
+                           :priority 100
+                           :load-commands '()
+                           :alt-load-commands '()
+                           :bsp-mask #xffffffffffffffff
+                           :bsphere (new 'static 'sphere :w 167772160000.0)
+                           :bottom-height (meters -20)
+                           :run-packages '()
+                           :wait-for-load #t
+                           )
+        )
+
+(define city-zone-offshore (new 'static 'level-load-info
+                           :index 29
+                           :name 'city-zone-offshore
+                           :visname 'city-zone-offshore-vis ;; name + -vis
+                           :nickname 'czo          ;; nickname
+                           :packages '(beach)
+                           :sound-banks '(beach)
+                           :music-bank 'beach
+                           :ambient-sounds '()
+                           :mood '*beach-mood*
+                           :mood-func 'update-mood-village1
+                           :ocean #f
+                           :sky #t
+                           :continues '((new 'static 'continue-point
+                                             :name "city-zone-offshore-start"
+                                             :level 'city-zone-offshore
+                                             :trans (new 'static 'vector :x (meters -246.62) :y (meters 210.84) :z (meters 402.24) :w 1.0)
+                                             ;;:trans (new 'static 'vector :x (meters -217.56) :y (meters 16.72) :z (meters 9909.1) :w 1.0)
+                                             :quat (new 'static 'quaternion  :w 1.0)
+                                             :camera-trans (new 'static 'vector :x 0.0 :y 4096.0 :z 0.0 :w 1.0)
+                                             :camera-rot (new 'static 'array float 9 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0)
+                                             :load-commands '()
+                                             :vis-nick 'none
+                                             :lev0 'city-zone-offshore
+                                             :disp0 'display
+                                             :lev1 'city-zone
+                                             :disp1 'display
+                                             ))
+                           :tasks '()
+                           :priority 100
+                           :load-commands '()
+                           :alt-load-commands '()
+                           :bsp-mask #xffffffffffffffff
+                           :bsphere (new 'static 'sphere :w 167772160000.0)
+                           :bottom-height (meters -20)
+                           :run-packages '()
+                           :wait-for-load #t
+                           )
+        )
+
 (cons! *level-load-list* 'test-zone)
+(cons! *level-load-list* 'city-zone)
+(cons! *level-load-list* 'city-zone-offshore)
